@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FFXIVCollect FC Mount filter
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  FFXIVCollect FC Mount filter
 // @author       You
 // @match        https://ffxivcollect.com/fc/*/mounts
@@ -14,7 +14,7 @@
 
     window.isRowHidingEnabled = true;
 
-    var fcCollectionTables = document.getElementsByClassName('free-company-collection');
+    var fcCollectionTables = document.getElementsByClassName('group-collection');
     if (fcCollectionTables.length == 0)
         return;
 
@@ -35,7 +35,7 @@
 
     function toggleActivity() {
         window.isRowHidingEnabled = this.checked;
-        var allRows = document.querySelectorAll('.free-company-collection tbody tr');
+        var allRows = document.querySelectorAll('.group-collection tbody tr');
         for (var i = 0; i < allRows.length; ++i) {
             var row = allRows[i];
             if (window.isRowHidingEnabled) {
